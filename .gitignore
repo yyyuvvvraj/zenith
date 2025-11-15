@@ -1,1 +1,18 @@
-node_modules
+# dependencies
+/node_modules
+
+# production
+/build
+
+# next.js
+.next/
+out/
+
+# env files
+.env
+.env.local
+.env.production
+.env.development
+
+# misc
+.DS_Store
