@@ -2,7 +2,6 @@ import Hero from "@/components/HomeHero.tsx/Hero";
 import MetricsStrip from "@/components/TimelineSection/TimelineSection";
 import FeatureGrid from "@/components/FeatureGrid/FeatureGrid";
 import ManualVsZenith from "@/components/ManualVsZenith/ManualVsZenith";
-import TimelineSection from "@/components/TimelineSection/TimelineSection";
 
 export default function HomePage() {
   return (
