@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 export default function Header() {
@@ -14,37 +15,38 @@ export default function Header() {
           <div className="h-8 w-8 rounded-xl bg-slate-900 text-white flex items-center justify-center font-semibold shadow-sm">
             Z
           </div>
-          <span className="text-xl font-semibold tracking-tight text-slate-900">
+          <Link
+            href="/"
+            className="text-xl font-semibold tracking-tight text-slate-900"
+          >
             Zenith
-          </span>
+          </Link>
         </div>
-
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10 text-sm font-medium text-slate-900">
           <a href="#features" className="hover:text-slate-600 transition">
             Features
           </a>
           <a href="#pricing" className="hover:text-slate-600 transition">
-            Pricing
+            Contact
           </a>
           <a href="#about" className="hover:text-slate-600 transition">
             About
           </a>
         </nav>
-
         {/* CTA Button */}
+
         <button
           className="
-            hidden md:inline-flex rounded-xl px-5 py-2 text-sm font-semibold text-slate-900 shadow-sm 
-            bg-gradient-to-r from-[#b6daff] to-[#b6daff] 
-            bg-[length:200%_200%] bg-left 
-            hover:bg-right hover:from-[#b6daff] hover:to-[#ffd6e9]
-            transition-all duration-500 ease-out
-          "
+    hidden md:inline-flex rounded-xl px-5 py-2 text-sm font-semibold text-slate-900 shadow-sm 
+    bg-gradient-to-r from-[#b6daff] to-[#b6daff] 
+    bg-[length:200%_200%] bg-left 
+    hover:bg-right hover:from-[#b6daff] hover:to-[#ffd6e9]
+    transition-all duration-500 ease-out
+  "
         >
-          Login
+          <Link href="/signup">Signup</Link>
         </button>
-
         {/* Mobile Toggle */}
         <button
           className="md:hidden text-slate-900"
