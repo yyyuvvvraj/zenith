@@ -24,9 +24,6 @@ export default function Header() {
           <a href="#features" className="hover:text-slate-600 transition">
             Features
           </a>
-          <a href="#pricing" className="hover:text-slate-600 transition">
-            Pricing
-          </a>
           <a href="#about" className="hover:text-slate-600 transition">
             About
           </a>
@@ -59,9 +56,6 @@ export default function Header() {
         <div className="md:hidden px-6 py-4 bg-white/70 backdrop-blur-xl border-t border-slate-200 space-y-3 text-sm font-medium">
           <a href="#features" className="block">
             Features
-          </a>
-          <a href="#pricing" className="block">
-            Pricing
           </a>
           <a href="#about" className="block">
             About
