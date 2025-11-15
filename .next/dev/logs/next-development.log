@@ -2280,3 +2280,84 @@ It can also happen if the client has a browser extension installed which messes 
           ...
 
 [01:14:53.841] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:28:16.152] Server  LOG      ✓ Compiled in 589ms
+[01:29:08.133] Server  LOG      ✓ Compiled in 464ms
+[01:29:08.206] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./src/app/dashboard/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:29:11.285] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:29:56.389] Server  LOG      ✓ Compiled in 873ms
+[01:29:59.699] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:31:04.840] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:31:34.939] Server  LOG      ✓ Compiled in 134ms
+[01:31:37.897] Server  LOG      ✓ Compiled in 55ms
+[01:32:13.976] Server  LOG      ✓ Compiled in 153ms
+[01:33:43.322] Server  LOG      ✓ Compiled in 451ms
+[01:34:00.368] Server  LOG      ✓ Compiled in 185ms
+[01:34:07.393] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:34:13.042] Server  LOG      ✓ Compiled in 98ms
+[01:34:17.430] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:34:17.661] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <HomePage>
+                <main className="min-h-scre...">
+                  <div className="max-w-6xl ...">
+                    <section>
+                    <TimelineSection>
+                      <RadialOrbitalTimelineDemo>
+                        <RadialOrbitalTimeline timelineData={[...]}>
+                          <div className="w-full fle...">
+                            <div ref={{current:null}} onClick={function handleContainerClick} className={"   relat..."}>
+                              <div className="relative w...">
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div
+                                  ref={function ref}
+                                  className="absolute transition-all duration-700 cursor-pointer"
+                                  style={{
++                                   transform: "translate(-161.8033988749895px, -117.5570504584946px)"
+-                                   transform: "translate(-161.803px, -117.557px)"
++                                   zIndex: 60
++                                   opacity: 0.5236644243122581
+-                                   opacity: "0.523664"
+-                                   z-index: "60"
+                                  }}
+                                  onClick={function onClick}
+                                >
+                                ...
+                    ...
+            ...
+          ...
+
+[01:34:17.661] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:34:18.900] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:34:21.473] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:34:31.224] Server  LOG      ✓ Compiled in 382ms
+[01:34:34.484] Server  LOG      ○ Compiling /contact ...
+[01:34:37.390] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:37:03.367] Server  LOG      ✓ Compiled in 688ms
+[01:37:26.029] Server  LOG      ✓ Compiled in 145ms
+[01:37:34.036] Server  LOG      ○ Compiling /features ...
+[01:37:49.162] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:38:06.240] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:56:34.044] Server  LOG      ✓ Compiled in 2.7s
+[01:56:42.262] Server  LOG      ✓ Compiled in 2.1s
+[01:57:19.094] Server  LOG      ✓ Compiled in 508ms

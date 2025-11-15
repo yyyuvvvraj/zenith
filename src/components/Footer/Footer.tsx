@@ -5,7 +5,7 @@ import { Github, Mail, Linkedin, Sparkles } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative mt-20 bg-slate-900 text-white">
+    <footer className="relative bg-slate-900 text-white">
       {/* Gradient Lighting */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(96,165,250,0.25),transparent_65%)]" />
 
