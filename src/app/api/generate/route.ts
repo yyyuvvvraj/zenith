@@ -1,16 +1,30 @@
 import { NextResponse } from "next/server";
-import { ParsedTimetable, TimetableVersion } from "@/types/timetable";
+import parseExcel from "@/lib/parseExcel";
+import parseCSV from "@/lib/parseCSV";
+import parsePDF from "@/lib/parsePDF";
+import parseImage from "@/lib/parseImage";
 
 export async function POST(req: Request) {
-  const body = await req.json();
+  try {
+    const form = await req.formData();
+    const file = form.get("file") as File | null;
 
-  const parsed: ParsedTimetable = body.parsed;
+    if (!file) {
+      return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
+    }
 
-  const versions: TimetableVersion[] = [
-    { id: 1, tqi: Math.random() * 10, timetable: parsed.rows.slice(0, 10) },
-    { id: 2, tqi: Math.random() * 10, timetable: parsed.rows.slice(10, 20) },
-    { id: 3, tqi: Math.random() * 10, timetable: parsed.rows.slice(20, 30) },
-  ];
+    const ext = file.name.split(".").pop()?.toLowerCase() || "";
+    const buffer = Buffer.from(await file.arrayBuffer());
 
-  return NextResponse.json({ versions });
+    let parsed;
+    if (["xlsx", "xls"].includes(ext)) parsed = await parseExcel(buffer);
+    else if (ext === "csv") parsed = await parseCSV(buffer);
+    else if (ext === "pdf") parsed = await parsePDF(buffer);
+    else parsed = await parseImage(buffer); // fallback to OCR
+
+    return NextResponse.json({ ext, parsed });
+  } catch (err) {
+    console.error("Parse API error:", err);
+    return NextResponse.json({ error: String(err) }, { status: 500 });
+  }
 }
