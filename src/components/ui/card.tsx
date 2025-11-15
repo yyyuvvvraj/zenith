@@ -2,6 +2,8 @@
 
 import { Calendar, Code, FileText, User, Clock } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
 const timelineData = [
   {
@@ -13,7 +15,7 @@ const timelineData = [
     icon: Calendar,
     relatedIds: [2],
     status: "completed" as const,
-    score: 100,
+    energy: 100,
   },
   {
     id: 2,
@@ -24,7 +26,7 @@ const timelineData = [
     icon: FileText,
     relatedIds: [1, 3],
     status: "completed" as const,
-    score: 90,
+    energy: 90,
   },
   {
     id: 3,
@@ -35,7 +37,7 @@ const timelineData = [
     icon: Code,
     relatedIds: [2, 4],
     status: "in-progress" as const,
-    score: 60,
+    energy: 60,
   },
   {
     id: 4,
@@ -46,7 +48,7 @@ const timelineData = [
     icon: User,
     relatedIds: [3, 5],
     status: "pending" as const,
-    score: 30,
+    energy: 30,
   },
   {
     id: 5,
@@ -57,19 +59,14 @@ const timelineData = [
     icon: Clock,
     relatedIds: [4],
     status: "pending" as const,
-    score: 10,
+    energy: 10,
   },
 ];
 
 export function RadialOrbitalTimelineDemo() {
   return (
     <>
-      <RadialOrbitalTimeline
-        timelineData={timelineData.map((item) => ({
-          ...(item as any),
-          energy: (item as any).energy ?? (item as any).score ?? 0,
-        }))}
-      />
+      <RadialOrbitalTimeline timelineData={timelineData} />
     </>
   );
 }
@@ -77,10 +74,6 @@ export function RadialOrbitalTimelineDemo() {
 export default {
   RadialOrbitalTimelineDemo,
 };
-
-import * as React from "react";
-
-import { cn } from "@/lib/utils";
 
 const Card = React.forwardRef<
   HTMLDivElement,

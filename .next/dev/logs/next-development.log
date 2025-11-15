@@ -1,0 +1,2363 @@
+[00:00:02.369] Server  LOG      ✓ Ready in 1678ms
+[00:00:11.236] Server  LOG      ○ Compiling /_not-found/page ...
+[00:00:15.753] Server  ERROR    ⨯ ./src/components/ui/button.tsx:55:7
+Ecmascript file had an error
+  53 | }
+  54 |
+> 55 | const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+     |       ^^^^^^
+  56 |   ({ className, variant, size, asChild = false, ...props }, ref) => {
+  57 |     const Comp = asChild ? Slot : "button";
+  58 |     return (
+
+the name `Button` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/button.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/button.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+
+
+./src/components/ui/card.tsx:11:1
+Ecmascript file had an error
+   9 |   return <div className={`p-6 ${className}`}>{children}</div>;
+  10 | }
+> 11 | "use client";
+     | ^^^^^^^^^^^^^
+  12 |
+  13 | import { Calendar, Code, FileText, User, Clock } from "lucide-react";
+  14 | import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+
+The "use client" directive must be placed before other expressions. Move it to the top of the file to resolve this issue.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/card.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/card.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+
+
+./src/components/ui/card.tsx:149:7
+Ecmascript file had an error
+  147 | CardDescription.displayName = "CardDescription";
+  148 |
+> 149 | const CardContent = React.forwardRef<
+      |       ^^^^^^^^^^^
+  150 |   HTMLDivElement,
+  151 |   React.HTMLAttributes<HTMLDivElement>
+  152 | >(({ className, ...props }, ref) => (
+
+the name `CardContent` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/card.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/card.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+
+
+./src/components/ui/card.tsx:95:7
+Ecmascript file had an error
+  93 | import { cn } from "@/lib/utils";
+  94 |
+> 95 | const Card = React.forwardRef<
+     |       ^^^^
+  96 |   HTMLDivElement,
+  97 |   React.HTMLAttributes<HTMLDivElement>
+  98 | >(({ className, ...props }, ref) => (
+
+the name `Card` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/card.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/card.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+
+[00:00:21.319] Browser ERROR   uncaughtError: Error: ./src/components/ui/button.tsx:55:7
+Ecmascript file had an error
+  53 | }
+  54 |
+> 55 | const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+     |       ^^^^^^
+  56 |   ({ className, variant, size, asChild = false, ...props }, ref) => {
+  57 |     const Comp = asChild ? Slot : "button";
+  58 |     return (
+
+the name `Button` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/button.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/button.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+
+[00:00:23.466] Browser ERROR   ./src/components/ui/button.tsx:55:7
+Ecmascript file had an error
+  53 | }
+  54 |
+> 55 | const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+     |       ^^^^^^
+  56 |   ({ className, variant, size, asChild = false, ...props }, ref) => {
+  57 |     const Comp = asChild ? Slot : "button";
+  58 |     return (
+
+the name `Button` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/button.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/button.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+[00:00:23.466] Browser ERROR   ./src/components/ui/card.tsx:11:1
+Ecmascript file had an error
+   9 |   return <div className={`p-6 ${className}`}>{children}</div>;
+  10 | }
+> 11 | "use client";
+     | ^^^^^^^^^^^^^
+  12 |
+  13 | import { Calendar, Code, FileText, User, Clock } from "lucide-react";
+  14 | import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+
+The "use client" directive must be placed before other expressions. Move it to the top of the file to resolve this issue.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/card.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/card.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+[00:00:23.466] Browser ERROR   ./src/components/ui/card.tsx:149:7
+Ecmascript file had an error
+  147 | CardDescription.displayName = "CardDescription";
+  148 |
+> 149 | const CardContent = React.forwardRef<
+      |       ^^^^^^^^^^^
+  150 |   HTMLDivElement,
+  151 |   React.HTMLAttributes<HTMLDivElement>
+  152 | >(({ className, ...props }, ref) => (
+
+the name `CardContent` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/card.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/card.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+[00:00:23.466] Browser ERROR   ./src/components/ui/card.tsx:95:7
+Ecmascript file had an error
+  93 | import { cn } from "@/lib/utils";
+  94 |
+> 95 | const Card = React.forwardRef<
+     |       ^^^^
+  96 |   HTMLDivElement,
+  97 |   React.HTMLAttributes<HTMLDivElement>
+  98 | >(({ className, ...props }, ref) => (
+
+the name `Card` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/card.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/card.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+[00:00:23.466] Browser ERROR   ./src/components/ui/button.tsx:55:7
+Ecmascript file had an error
+  53 | }
+  54 |
+> 55 | const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+     |       ^^^^^^
+  56 |   ({ className, variant, size, asChild = false, ...props }, ref) => {
+  57 |     const Comp = asChild ? Slot : "button";
+  58 |     return (
+
+the name `Button` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/button.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/button.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+[00:00:23.466] Browser ERROR   ./src/components/ui/card.tsx:11:1
+Ecmascript file had an error
+   9 |   return <div className={`p-6 ${className}`}>{children}</div>;
+  10 | }
+> 11 | "use client";
+     | ^^^^^^^^^^^^^
+  12 |
+  13 | import { Calendar, Code, FileText, User, Clock } from "lucide-react";
+  14 | import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+
+The "use client" directive must be placed before other expressions. Move it to the top of the file to resolve this issue.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/card.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/card.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+[00:00:23.466] Browser ERROR   ./src/components/ui/card.tsx:149:7
+Ecmascript file had an error
+  147 | CardDescription.displayName = "CardDescription";
+  148 |
+> 149 | const CardContent = React.forwardRef<
+      |       ^^^^^^^^^^^
+  150 |   HTMLDivElement,
+  151 |   React.HTMLAttributes<HTMLDivElement>
+  152 | >(({ className, ...props }, ref) => (
+
+the name `CardContent` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/card.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/card.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+[00:00:23.466] Browser ERROR   ./src/components/ui/card.tsx:95:7
+Ecmascript file had an error
+  93 | import { cn } from "@/lib/utils";
+  94 |
+> 95 | const Card = React.forwardRef<
+     |       ^^^^
+  96 |   HTMLDivElement,
+  97 |   React.HTMLAttributes<HTMLDivElement>
+  98 | >(({ className, ...props }, ref) => (
+
+the name `Card` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/card.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/card.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+[00:03:10.381] Browser ERROR   ./src/components/ui/button.tsx:55:7
+Ecmascript file had an error
+  53 | }
+  54 |
+> 55 | const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+     |       ^^^^^^
+  56 |   ({ className, variant, size, asChild = false, ...props }, ref) => {
+  57 |     const Comp = asChild ? Slot : "button";
+  58 |     return (
+
+the name `Button` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/button.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/button.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+[00:03:20.362] Browser ERROR   ./src/components/ui/button.tsx:55:7
+Ecmascript file had an error
+  53 | }
+  54 |
+> 55 | const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+     |       ^^^^^^
+  56 |   ({ className, variant, size, asChild = false, ...props }, ref) => {
+  57 |     const Comp = asChild ? Slot : "button";
+  58 |     return (
+
+the name `Button` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/button.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/button.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+[00:03:30.755] Browser ERROR   ./src/components/ui/button.tsx:55:7
+Ecmascript file had an error
+  53 | }
+  54 |
+> 55 | const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+     |       ^^^^^^
+  56 |   ({ className, variant, size, asChild = false, ...props }, ref) => {
+  57 |     const Comp = asChild ? Slot : "button";
+  58 |     return (
+
+the name `Button` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/button.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/button.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+[00:03:50.035] Server  LOG      ✓ Compiled in 139ms
+[00:03:52.306] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:54.368] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <HomePage>
+                <main className="min-h-scre...">
+                  <div className="max-w-6xl ...">
+                    <section>
+                    <TimelineSection>
+                      <RadialOrbitalTimelineDemo>
+                        <RadialOrbitalTimeline timelineData={[...]}>
+                          <div className="w-full fle...">
+                            <div ref={{current:null}} onClick={function handleContainerClick} className={"   relat..."}>
+                              <div className="relative w...">
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div
+                                  ref={function ref}
+                                  className="absolute transition-all duration-700 cursor-pointer"
+                                  style={{
++                                   transform: "translate(-161.8033988749895px, -117.5570504584946px)"
+-                                   transform: "translate(-161.803px, -117.557px)"
++                                   zIndex: 60
++                                   opacity: 0.5236644243122581
+-                                   opacity: "0.523664"
+-                                   z-index: "60"
+                                  }}
+                                  onClick={function onClick}
+                                >
+                                ...
+                    ...
+            ...
+          ...
+
+[00:03:54.369] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:11.531] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:11.995] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <HomePage>
+                <main className="min-h-scre...">
+                  <div className="max-w-6xl ...">
+                    <section>
+                    <TimelineSection>
+                      <RadialOrbitalTimelineDemo>
+                        <RadialOrbitalTimeline timelineData={[...]}>
+                          <div className="w-full fle...">
+                            <div ref={{current:null}} onClick={function handleContainerClick} className={"   relat..."}>
+                              <div className="relative w...">
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div
+                                  ref={function ref}
+                                  className="absolute transition-all duration-700 cursor-pointer"
+                                  style={{
++                                   transform: "translate(-161.8033988749895px, -117.5570504584946px)"
+-                                   transform: "translate(-161.803px, -117.557px)"
++                                   zIndex: 60
++                                   opacity: 0.5236644243122581
+-                                   opacity: "0.523664"
+-                                   z-index: "60"
+                                  }}
+                                  onClick={function onClick}
+                                >
+                                ...
+                    ...
+            ...
+          ...
+
+[00:05:11.995] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:23.430] Server  LOG      ○ Compiling /signup ...
+[00:05:25.632] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:19.663] Server  LOG      ✓ Compiled in 549ms
+[00:14:20.873] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:14:20.875] Browser ERROR   uncaughtError: ReferenceError: Link is not defined
+[00:14:20.878] Server  LOG      ✓ Compiled in 60ms
+[00:14:21.587] Server  ERROR   D:\zenith\.next\dev\server\chunks\ssr\[root-of-the-server]__3e9e6550._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:21.590] Server  ERROR    ⨯ ReferenceError: Link is not defined
+[00:14:21.618] Browser ERROR   uncaughtError: ReferenceError: Link is not defined
+[00:14:23.628] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:25.210] Browser ERROR   uncaughtError: ReferenceError: Link is not defined
+[00:14:25.232] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:14:25.658] Server  LOG      ✓ Compiled in 1497ms
+[00:14:26.586] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:48.029] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:48.238] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <HomePage>
+                <main className="min-h-scre...">
+                  <div className="max-w-6xl ...">
+                    <section>
+                    <TimelineSection>
+                      <RadialOrbitalTimelineDemo>
+                        <RadialOrbitalTimeline timelineData={[...]}>
+                          <div className="w-full fle...">
+                            <div ref={{current:null}} onClick={function handleContainerClick} className={"   relat..."}>
+                              <div className="relative w...">
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div
+                                  ref={function ref}
+                                  className="absolute transition-all duration-700 cursor-pointer"
+                                  style={{
++                                   transform: "translate(-161.8033988749895px, -117.5570504584946px)"
+-                                   transform: "translate(-161.803px, -117.557px)"
++                                   zIndex: 60
++                                   opacity: 0.5236644243122581
+-                                   opacity: "0.523664"
+-                                   z-index: "60"
+                                  }}
+                                  onClick={function onClick}
+                                >
+                                ...
+                    ...
+            ...
+          ...
+
+[00:14:48.239] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:15:26.799] Server  LOG      ✓ Compiled in 75ms
+[00:15:27.368] Browser ERROR   uncaughtError: Error: Failed prop type: The prop `href` expects a `string` or `object` in `<Link>`, but got `undefined` instead.
+Open your browser's console to view the Component stack trace.
+[00:15:34.572] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:15:34.601] Server  LOG      ✓ Compiled in 55ms
+[00:15:35.797] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:36.920] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:16:16.497] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:23.333] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:22:08.632] Server  LOG      ✓ Compiled in 776ms
+[00:22:09.411] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:22:18.991] Server  ERROR    ⨯ ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+
+
+[00:22:19.280] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:22:20.359] Browser ERROR   uncaughtError: Error: ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+
+
+[00:22:20.545] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:22:20.545] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:22:20.545] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:22:20.545] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:22:20.545] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:22:35.652] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:35.655] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:35.658] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:35.660] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:35.687] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:35.690] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:35.778] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:35.819] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:36.363] Browser ERROR   ./src/app/layout.tsx:2:10
+Ecmascript file had an error
+  1 | import Header from "@/components/Header";
+> 2 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  3 |
+  4 | export default function RootLayout({
+  5 |   children,
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:22:36.364] Browser ERROR   ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:22:42.616] Browser ERROR   ./src/app/layout.tsx:2:10
+Ecmascript file had an error
+  1 | import Header from "@/components/Header";
+> 2 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  3 |
+  4 | export default function RootLayout({
+  5 |   children,
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:22:42.616] Browser ERROR   ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:22:49.093] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header/Header'
+> 1 | import Header from "@/components/Header/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:49.094] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header/Header'
+> 1 | import Header from "@/components/Header/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:49.096] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header/Header'
+> 1 | import Header from "@/components/Header/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:49.099] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header/Header'
+> 1 | import Header from "@/components/Header/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:49.100] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header/Header'
+> 1 | import Header from "@/components/Header/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:49.101] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header/Header'
+> 1 | import Header from "@/components/Header/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:49.102] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header/Header'
+> 1 | import Header from "@/components/Header/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:49.102] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header/Header'
+> 1 | import Header from "@/components/Header/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:49.557] Browser ERROR   ./src/app/layout.tsx:2:10
+Ecmascript file had an error
+  1 | import Header from "@/components/Header/Header";
+> 2 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  3 |
+  4 | export default function RootLayout({
+  5 |   children,
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:22:49.557] Browser ERROR   ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header/Header'
+> 1 | import Header from "@/components/Header/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header/Header' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:22:52.772] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:52.773] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:52.774] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:52.775] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:52.776] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:52.776] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:52.782] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:52.782] Server  ERROR    ⨯ ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:22:53.375] Browser ERROR   ./src/app/layout.tsx:2:10
+Ecmascript file had an error
+  1 | import Header from "@/components/Header";
+> 2 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  3 |
+  4 | export default function RootLayout({
+  5 |   children,
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:22:53.375] Browser ERROR   ./src/app/layout.tsx:1:1
+Module not found: Can't resolve '@/components/Header'
+> 1 | import Header from "@/components/Header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { usePathname } from "next/navigation";
+  3 |
+  4 | export default function RootLayout({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:22:54.370] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:23:17.362] Browser ERROR   ./src/app/layout.tsx:5:10
+Ecmascript file had an error
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:25:08.133] Server  ERROR    ⨯ ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/HeaderVisibility'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import HeaderVisibility from "@/components/HeaderVisibility";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const geistSans = Geist({
+  7 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/HeaderVisibility' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:25:08.147] Server  ERROR    ⨯ ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/HeaderVisibility'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import HeaderVisibility from "@/components/HeaderVisibility";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const geistSans = Geist({
+  7 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/HeaderVisibility' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:25:08.157] Server  ERROR    ⨯ ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/HeaderVisibility'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import HeaderVisibility from "@/components/HeaderVisibility";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const geistSans = Geist({
+  7 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/HeaderVisibility' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:25:08.174] Server  ERROR    ⨯ ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/HeaderVisibility'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import HeaderVisibility from "@/components/HeaderVisibility";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const geistSans = Geist({
+  7 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/HeaderVisibility' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:25:08.181] Server  ERROR    ⨯ ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/HeaderVisibility'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import HeaderVisibility from "@/components/HeaderVisibility";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const geistSans = Geist({
+  7 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/HeaderVisibility' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:25:08.184] Server  ERROR    ⨯ ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/HeaderVisibility'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import HeaderVisibility from "@/components/HeaderVisibility";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const geistSans = Geist({
+  7 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/HeaderVisibility' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:25:08.226] Server  ERROR    ⨯ ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/HeaderVisibility'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import HeaderVisibility from "@/components/HeaderVisibility";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const geistSans = Geist({
+  7 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/HeaderVisibility' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:25:08.236] Server  ERROR    ⨯ ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/HeaderVisibility'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import HeaderVisibility from "@/components/HeaderVisibility";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const geistSans = Geist({
+  7 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/HeaderVisibility' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:25:09.372] Browser ERROR   ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/HeaderVisibility'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import HeaderVisibility from "@/components/HeaderVisibility";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const geistSans = Geist({
+  7 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/HeaderVisibility' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:26:36.373] Browser ERROR   ./src/app/layout.tsx:5:10
+Ecmascript file had an error
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:26:37.365] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:32:02.119] Server  ERROR    ⨯ ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+
+
+[00:32:02.456] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:32:02.579] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:32:03.044] Server  WARN     ⚠ Cross origin request detected from 10.29.226.150 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[00:32:03.077] Browser ERROR   uncaughtError: Error: ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+
+
+[00:32:03.244] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:32:03.244] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:32:03.244] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:32:03.244] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:32:03.283] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:32:03.354] Browser ERROR   ./src/app/layout.tsx:19:14
+Ecmascript file had an error
+  17 | });
+  18 |
+> 19 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  20 |   title: "Zenith - Smart Scheduling",
+  21 |   description: "AI powered timetable optimization platform",
+  22 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.tsx [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.tsx [Client Component SSR]
+    ./src/app/layout.tsx [Server Component]
+[00:45:23.326] Server  LOG      ✓ Compiled in 442ms
+[00:45:26.405] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:45:29.274] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:45:32.682] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <HomePage>
+                <main className="min-h-scre...">
+                  <div className="max-w-6xl ...">
+                    <section>
+                    <TimelineSection>
+                      <RadialOrbitalTimelineDemo>
+                        <RadialOrbitalTimeline timelineData={[...]}>
+                          <div className="w-full fle...">
+                            <div ref={{current:null}} onClick={function handleContainerClick} className={"   relat..."}>
+                              <div className="relative w...">
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div
+                                  ref={function ref}
+                                  className="absolute transition-all duration-700 cursor-pointer"
+                                  style={{
++                                   transform: "translate(-161.8033988749895px, -117.5570504584946px)"
+-                                   transform: "translate(-161.803px, -117.557px)"
++                                   zIndex: 60
++                                   opacity: 0.5236644243122581
+-                                   opacity: "0.523664"
+-                                   z-index: "60"
+                                  }}
+                                  onClick={function onClick}
+                                >
+                                ...
+                    ...
+            ...
+          ...
+
+[00:47:11.210] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:47:11.415] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <HomePage>
+                <main className="min-h-scre...">
+                  <div className="max-w-6xl ...">
+                    <section>
+                    <TimelineSection>
+                      <RadialOrbitalTimelineDemo>
+                        <RadialOrbitalTimeline timelineData={[...]}>
+                          <div className="w-full fle...">
+                            <div ref={{current:null}} onClick={function handleContainerClick} className={"   relat..."}>
+                              <div className="relative w...">
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div
+                                  ref={function ref}
+                                  className="absolute transition-all duration-700 cursor-pointer"
+                                  style={{
++                                   transform: "translate(-161.8033988749895px, -117.5570504584946px)"
+-                                   transform: "translate(-161.803px, -117.557px)"
++                                   zIndex: 60
++                                   opacity: 0.5236644243122581
+-                                   opacity: "0.523664"
+-                                   z-index: "60"
+                                  }}
+                                  onClick={function onClick}
+                                >
+                                ...
+                    ...
+            ...
+          ...
+
+[00:47:11.415] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:47:45.193] Server  LOG      ✓ Compiled in 71ms
+[00:59:30.885] Server  LOG      ✓ Compiled in 563ms
+[00:59:31.082] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:59:33.099] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:59:41.463] Server  LOG      ○ Compiling /about ...
+[00:59:47.347] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:06:30.011] Server  LOG      ✓ Compiled in 2.9s
+[01:07:22.817] Server  LOG      ✓ Compiled in 86ms
+[01:07:27.748] Server  LOG      ✓ Compiled in 65ms
+[01:07:33.374] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:08:11.501] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:14:15.776] Server  LOG      ✓ Compiled in 509ms
+[01:14:25.040] Server  LOG      ✓ Compiled in 327ms
+[01:14:26.798] Server  ERROR   D:\zenith\.next\dev\server\chunks\ssr\[root-of-the-server]__8866359a._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:14:26.815] Server  ERROR    ⨯ ReferenceError: Footer is not defined
+[01:14:27.281] Server  ERROR   D:\zenith\.next\dev\server\chunks\ssr\[root-of-the-server]__8866359a._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:14:27.282] Server  ERROR    ⨯ ReferenceError: Footer is not defined
+[01:14:27.411] Server  ERROR   D:\zenith\.next\dev\server\chunks\ssr\[root-of-the-server]__8866359a._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:14:27.412] Server  ERROR    ⨯ ReferenceError: Footer is not defined
+[01:14:27.520] Server  ERROR   D:\zenith\.next\dev\server\chunks\ssr\[root-of-the-server]__8866359a._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:14:27.520] Server  ERROR    ⨯ ReferenceError: Footer is not defined
+[01:14:27.643] Server  ERROR   D:\zenith\.next\dev\server\chunks\ssr\[root-of-the-server]__8866359a._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:14:27.644] Server  ERROR    ⨯ ReferenceError: Footer is not defined
+[01:14:28.644] Browser ERROR   uncaughtError: ReferenceError: Footer is not defined
+[01:14:33.715] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.721] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.723] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.724] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.725] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.726] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.728] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.728] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.731] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.732] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.733] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.735] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.745] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.745] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.747] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.748] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.751] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.752] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.753] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.755] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.757] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.758] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.759] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:33.759] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:14:34.365] Browser ERROR   ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[01:14:43.362] Browser ERROR   ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/Footer.tsx/Footer'
+  3 | import "./globals.css";
+  4 | import Header from "@/components/Header.tsx/Header";
+> 5 | import Footer from "@/components/Footer.tsx/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+Import map: aliased to relative './src/components/Footer.tsx/Footer' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[01:14:51.446] Server  LOG      ✓ Compiled in 2.7s
+[01:14:52.762] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:14:53.539] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:14:53.837] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <HomePage>
+                <main className="min-h-scre...">
+                  <div className="max-w-6xl ...">
+                    <section>
+                    <TimelineSection>
+                      <RadialOrbitalTimelineDemo>
+                        <RadialOrbitalTimeline timelineData={[...]}>
+                          <div className="w-full fle...">
+                            <div ref={{current:null}} onClick={function handleContainerClick} className={"   relat..."}>
+                              <div className="relative w...">
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div
+                                  ref={function ref}
+                                  className="absolute transition-all duration-700 cursor-pointer"
+                                  style={{
++                                   transform: "translate(-161.8033988749895px, -117.5570504584946px)"
+-                                   transform: "translate(-161.803px, -117.557px)"
++                                   zIndex: 60
++                                   opacity: 0.5236644243122581
+-                                   opacity: "0.523664"
+-                                   z-index: "60"
+                                  }}
+                                  onClick={function onClick}
+                                >
+                                ...
+                    ...
+            ...
+          ...
+
+[01:14:53.841] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:28:16.152] Server  LOG      ✓ Compiled in 589ms
+[01:29:08.133] Server  LOG      ✓ Compiled in 464ms
+[01:29:08.206] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./src/app/dashboard/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:29:11.285] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:29:56.389] Server  LOG      ✓ Compiled in 873ms
+[01:29:59.699] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:31:04.840] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:31:34.939] Server  LOG      ✓ Compiled in 134ms
+[01:31:37.897] Server  LOG      ✓ Compiled in 55ms
+[01:32:13.976] Server  LOG      ✓ Compiled in 153ms
+[01:33:43.322] Server  LOG      ✓ Compiled in 451ms
+[01:34:00.368] Server  LOG      ✓ Compiled in 185ms
+[01:34:07.393] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:34:13.042] Server  LOG      ✓ Compiled in 98ms
+[01:34:17.430] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:34:17.661] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <HomePage>
+                <main className="min-h-scre...">
+                  <div className="max-w-6xl ...">
+                    <section>
+                    <TimelineSection>
+                      <RadialOrbitalTimelineDemo>
+                        <RadialOrbitalTimeline timelineData={[...]}>
+                          <div className="w-full fle...">
+                            <div ref={{current:null}} onClick={function handleContainerClick} className={"   relat..."}>
+                              <div className="relative w...">
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div
+                                  ref={function ref}
+                                  className="absolute transition-all duration-700 cursor-pointer"
+                                  style={{
++                                   transform: "translate(-161.8033988749895px, -117.5570504584946px)"
+-                                   transform: "translate(-161.803px, -117.557px)"
++                                   zIndex: 60
++                                   opacity: 0.5236644243122581
+-                                   opacity: "0.523664"
+-                                   z-index: "60"
+                                  }}
+                                  onClick={function onClick}
+                                >
+                                ...
+                    ...
+            ...
+          ...
+
+[01:34:17.661] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:34:18.900] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:34:21.473] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:34:31.224] Server  LOG      ✓ Compiled in 382ms
+[01:34:34.484] Server  LOG      ○ Compiling /contact ...
+[01:34:37.390] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:37:03.367] Server  LOG      ✓ Compiled in 688ms
+[01:37:26.029] Server  LOG      ✓ Compiled in 145ms
+[01:37:34.036] Server  LOG      ○ Compiling /features ...
+[01:37:49.162] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:38:06.240] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:56:34.044] Server  LOG      ✓ Compiled in 2.7s
+[01:56:42.262] Server  LOG      ✓ Compiled in 2.1s
+[01:57:19.094] Server  LOG      ✓ Compiled in 508ms
