@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/shlok/OneDrive/Desktop/zenith/src/app/api/generate/route.ts"],"sourcesContent":["import { NextResponse } from \"next/server\";\r\nimport { ParsedTimetable, TimetableVersion } from \"@/types/timetable\";\r\n\r\nexport async function POST(req: Request) {\r\n  const body = await req.json();\r\n\r\n  const parsed: ParsedTimetable = body.parsed;\r\n\r\n  const versions: TimetableVersion[] = [\r\n    { id: 1, tqi: Math.random() * 10, timetable: parsed.rows.slice(0, 10) },\r\n    { id: 2, tqi: Math.random() * 10, timetable: parsed.rows.slice(10, 20) },\r\n    { id: 3, tqi: Math.random() * 10, timetable: parsed.rows.slice(20, 30) },\r\n  ];\r\n\r\n  return NextResponse.json({ versions });\r\n}\r\n"],"names":[],"mappings":";;;;AAAA;;AAGO,eAAe,KAAK,GAAY;IACrC,MAAM,OAAO,MAAM,IAAI,IAAI;IAE3B,MAAM,SAA0B,KAAK,MAAM;IAE3C,MAAM,WAA+B;QACnC;YAAE,IAAI;YAAG,KAAK,KAAK,MAAM,KAAK;YAAI,WAAW,OAAO,IAAI,CAAC,KAAK,CAAC,GAAG;QAAI;QACtE;YAAE,IAAI;YAAG,KAAK,KAAK,MAAM,KAAK;YAAI,WAAW,OAAO,IAAI,CAAC,KAAK,CAAC,IAAI;QAAI;QACvE;YAAE,IAAI;YAAG,KAAK,KAAK,MAAM,KAAK;YAAI,WAAW,OAAO,IAAI,CAAC,KAAK,CAAC,IAAI;QAAI;KACxE;IAED,OAAO,gJAAY,CAAC,IAAI,CAAC;QAAE;IAAS;AACtC"}}]
+}

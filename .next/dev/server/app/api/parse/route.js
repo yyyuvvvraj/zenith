@@ -1,0 +1,10 @@
+var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/parse/route.js")
+R.c("server/chunks/node_modules_pdf-parse_dist_pdf-parse_esm_index_6b63fc4f.js")
+R.c("server/chunks/node_modules_next_8e49a001._.js")
+R.c("server/chunks/node_modules_xlsx_xlsx_mjs_539ebb60._.js")
+R.c("server/chunks/node_modules_tr46_3e4df63f._.js")
+R.c("server/chunks/node_modules_9844eadd._.js")
+R.c("server/chunks/[root-of-the-server]__6cbea2dc._.js")
+R.c("server/chunks/_next-internal_server_app_api_parse_route_actions_c99dece4.js")
+R.m("[project]/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/src/app/api/parse/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)")
+module.exports=R.m("[project]/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/src/app/api/parse/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)").exports

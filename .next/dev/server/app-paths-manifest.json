@@ -1,0 +1,7 @@
+{
+  "/api/generate/route": "app/api/generate/route.js",
+  "/api/parse/route": "app/api/parse/route.js",
+  "/generate-timetable/page": "app/generate-timetable/page.js",
+  "/generate-timetable/upload/page": "app/generate-timetable/upload/page.js",
+  "/page": "app/page.js"
+}
