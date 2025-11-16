@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 
 type SubjectConfig = {
   id: number;
@@ -68,6 +68,20 @@ const TIME_INDEX: Record<string, number> = TIME_SLOTS.reduce(
   (acc, t, i) => ({ ...acc, [t]: i }),
   {} as Record<string, number>
 );
+const DEFAULT_ORG_CODE = "DEFAULT_ORG";
+
+function getCurrentOrgCode(): string {
+  if (typeof window === "undefined") return DEFAULT_ORG_CODE;
+  const raw = window.localStorage.getItem("currentUserRole");
+  if (!raw) return DEFAULT_ORG_CODE;
+
+  try {
+    const parsed = JSON.parse(raw);
+    return parsed.orgCode || DEFAULT_ORG_CODE;
+  } catch {
+    return DEFAULT_ORG_CODE;
+  }
+}
 
 // ==== Monthly calendar helpers ====
 const WEEKDAY_HEADERS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -163,6 +177,14 @@ const TimetableGAPlatform: React.FC = () => {
     bestPenalty: number;
     generations: number;
   }>({ bestPenalty: 0, generations: 0 });
+
+  const [authRole, setAuthRole] = useState<Role | null>(null);
+  const [currentUser, setCurrentUser] = useState<{
+    email?: string;
+    name?: string;
+    username?: string;
+    role?: Role;
+  } | null>(null);
 
   // Academic events (admin-only to modify)
   const [events, setEvents] = useState<AcademicEvent[]>([
@@ -271,6 +293,37 @@ const TimetableGAPlatform: React.FC = () => {
     () => buildMonthMatrix(calendarYear, calendarMonth),
     [calendarYear, calendarMonth]
   );
+
+  // Load timetable + events for this org on mount
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const orgCode = getCurrentOrgCode();
+
+    const storedTimetable = window.localStorage.getItem(`timetable_${orgCode}`);
+    if (storedTimetable) {
+      try {
+        const parsed = JSON.parse(storedTimetable) as TimetableSlot[];
+        if (Array.isArray(parsed)) {
+          setTimetable(parsed);
+        }
+      } catch {
+        // ignore parse error
+      }
+    }
+
+    const storedEvents = window.localStorage.getItem(`events_${orgCode}`);
+    if (storedEvents) {
+      try {
+        const parsed = JSON.parse(storedEvents) as AcademicEvent[];
+        if (Array.isArray(parsed)) {
+          setEvents(parsed);
+        }
+      } catch {
+        // ignore parse error
+      }
+    }
+  }, []);
 
   const monthLabel = useMemo(
     () =>
@@ -757,7 +810,28 @@ const TimetableGAPlatform: React.FC = () => {
       });
     }
 
+    // After setTimetable(generated);
     setTimetable(generated);
+
+    // Persist timetable per-organisation
+    if (typeof window !== "undefined") {
+      const roleRaw = window.localStorage.getItem("currentUserRole");
+      let orgCode = "DEFAULT_ORG";
+      try {
+        if (roleRaw) {
+          const parsed = JSON.parse(roleRaw);
+          if (parsed?.orgCode) orgCode = parsed.orgCode;
+        }
+      } catch {
+        // ignore
+      }
+
+      window.localStorage.setItem(
+        `timetable_${orgCode}`,
+        JSON.stringify(generated)
+      );
+    }
+
     setGaStats({ bestPenalty, generations });
     setIsGenerating(false);
   };
@@ -1265,13 +1339,30 @@ const TimetableGAPlatform: React.FC = () => {
       blocksTeaching: newEventBlocksTeaching,
     };
 
-    setEvents((prev) => [...prev, event]);
+    setEvents((prev) => {
+      const next = [...prev, event];
+
+      if (typeof window !== "undefined") {
+        const orgCode = getCurrentOrgCode();
+        window.localStorage.setItem(`events_${orgCode}`, JSON.stringify(next));
+      }
+
+      return next;
+    });
+
     setNewEventLabel("");
   };
 
   const handleDeleteEvent = (id: number) => {
     if (!isAdmin) return;
-    setEvents((prev) => prev.filter((e) => e.id !== id));
+    setEvents((prev) => {
+      const next = prev.filter((e) => e.id !== id);
+      if (typeof window !== "undefined") {
+        const orgCode = getCurrentOrgCode();
+        window.localStorage.setItem(`events_${orgCode}`, JSON.stringify(next));
+      }
+      return next;
+    });
   };
 
   // Add event by clicking date in monthly calendar
@@ -1321,45 +1412,63 @@ const TimetableGAPlatform: React.FC = () => {
 
           {/* Role selector */}
           <div className="flex flex-col items-start sm:items-end gap-2">
-            <div className="flex items-center gap-2 text-xs">
-              <span className="text-slate-400">View as:</span>
-              <select
-                value={role}
-                onChange={(e) => {
-                  const nextRole = e.target.value as Role;
-                  setRole(nextRole);
-                  setWhatIfResult("");
-                  setPendingTimetable(null);
-                  setPendingChangeDescription("");
-                }}
-                className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1 outline-none focus:ring-2 focus:ring-emerald-500/60"
-              >
-                <option value="student">Student</option>
-                <option value="faculty">Faculty</option>
-                <option value="courseHead">Course Head</option>
-                <option value="admin">Admin</option>
-              </select>
-            </div>
+            {authRole ? (
+              <>
+                <div className="flex items-center gap-2 text-xs">
+                  <span className="text-slate-400">Signed in as:</span>
+                  <span className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1 text-[11px] font-medium">
+                    {authRole === "admin"
+                      ? "Admin"
+                      : authRole === "faculty"
+                      ? "Faculty"
+                      : "Student"}
+                  </span>
+                </div>
 
-            {isFaculty && (
-              <div className="flex items-center gap-2 text-[11px]">
-                <span className="text-slate-400">Faculty identity:</span>
-                <select
-                  value={actingFaculty}
-                  onChange={(e) => {
-                    setActingFaculty(e.target.value);
-                    setAdjustFaculty(e.target.value);
-                  }}
-                  className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1 outline-none focus:ring-2 focus:ring-emerald-500/60"
-                >
-                  <option value="">Select your name</option>
-                  {uniqueFaculties.map((f) => (
-                    <option key={f} value={f}>
-                      {f}
-                    </option>
-                  ))}
-                </select>
-              </div>
+                {authRole === "faculty" && (
+                  <div className="flex items-center gap-2 text-[11px]">
+                    <span className="text-slate-400">Faculty identity:</span>
+                    <select
+                      value={actingFaculty}
+                      onChange={(e) => {
+                        setActingFaculty(e.target.value);
+                        setAdjustFaculty(e.target.value);
+                      }}
+                      className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1 outline-none focus:ring-2 focus:ring-emerald-500/60"
+                    >
+                      <option value="">Select your name</option>
+                      {uniqueFaculties.map((f) => (
+                        <option key={f} value={f}>
+                          {f}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                {/* fallback demo mode when not logged in */}
+                <div className="flex items-center gap-2 text-xs">
+                  <span className="text-slate-400">View as:</span>
+                  <select
+                    value={role}
+                    onChange={(e) => {
+                      const nextRole = e.target.value as Role;
+                      setRole(nextRole);
+                      setWhatIfResult("");
+                      setPendingTimetable(null);
+                      setPendingChangeDescription("");
+                    }}
+                    className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1 outline-none focus:ring-2 focus:ring-emerald-500/60"
+                  >
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                    <option value="courseHead">Course Head</option>
+                    <option value="admin">Admin</option>
+                  </select>
+                </div>
+              </>
             )}
 
             <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-4 py-1 text-[11px] font-medium text-emerald-300">

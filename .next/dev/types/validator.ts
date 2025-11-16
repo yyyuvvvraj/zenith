@@ -175,9 +175,36 @@ type ApiRouteConfig = {
   type __Unused = __Check
 }
 
+// Validate ../../../src/app/timetable/student/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/timetable/student">> = Specific
+  const handler = {} as typeof import("../../../src/app/timetable/student/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
 
 
 
+
+
+// Validate ../../../src/pages/api/auth/[...nextauth].ts
+{
+  type __IsExpected<Specific extends ApiRouteConfig> = Specific
+  const handler = {} as typeof import("../../../src/pages/api/auth/[...nextauth].js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/pages/api/auth/ensureUser.ts
+{
+  type __IsExpected<Specific extends ApiRouteConfig> = Specific
+  const handler = {} as typeof import("../../../src/pages/api/auth/ensureUser.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
 
 // Validate ../../../src/pages/api/profile.ts
 {

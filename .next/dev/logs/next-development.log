@@ -1,7 +1,7 @@
-[00:00:50.108] Server  LOG      ✓ Ready in 48.9s
-[00:00:55.360] Server  LOG      ○ Compiling /timetable ...
-[00:02:49.167] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:50.881] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:05.782] Server  LOG      ✓ Ready in 4.1s
+[00:00:43.789] Server  LOG      ○ Compiling /signup ...
+[00:01:33.770] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:33.780] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -53,10 +53,108 @@ It can also happen if the client has a browser extension installed which messes 
             ...
           ...
 
-[00:02:50.882] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:02:54.601] Server  LOG      ○ Compiling /_not-found/page ...
-[00:03:21.196] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:22.883] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:01:33.780] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:02:37.449] Server  ERROR   Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.4tqzhl2.mongodb.net
+[00:02:37.453] Server  ERROR    ⨯ "unhandledRejection:" Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.4tqzhl2.mongodb.net
+[00:02:37.456] Server  ERROR    ⨯ "unhandledRejection: " Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.4tqzhl2.mongodb.net
+[00:05:43.622] Server  LOG      ○ Compiling /timetable ...
+[00:08:55.825] Server  LOG      ✓ Compiled in 1962ms
+[00:09:08.229] Server  LOG      ✓ Compiled in 175ms
+[00:09:08.712] Browser ERROR   uncaughtError: ReferenceError: useEffect is not defined
+[00:09:27.200] Server  LOG      ✓ Compiled in 203ms
+[00:09:27.260] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:09:30.200] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:59.717] Server  LOG      ✓ Compiled in 208ms
+[00:10:00.719] Browser ERROR   ./src/app/timetable/page.tsx:124:9
+Ecmascript file had an error
+  122 |   const isFaculty = role === "faculty";
+  123 |   const isCourseHead = role === "courseHead";
+> 124 |   const isAdmin = role === "admin";
+      |         ^^^^^^^
+  125 |
+  126 |   const canEditGlobal = isAdmin || isCourseHead;
+  127 |   const canRunGA = canEditGlobal;
+
+the name `isAdmin` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/app/timetable/page.tsx [Client Component Browser]
+    ./src/app/timetable/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/timetable/page.tsx [Client Component SSR]
+    ./src/app/timetable/page.tsx [Server Component]
+[00:10:00.719] Browser ERROR   ./src/app/timetable/page.tsx:123:9
+Ecmascript file had an error
+  121 |   const isStudent = role === "student";
+  122 |   const isFaculty = role === "faculty";
+> 123 |   const isCourseHead = role === "courseHead";
+      |         ^^^^^^^^^^^^
+  124 |   const isAdmin = role === "admin";
+  125 |
+  126 |   const canEditGlobal = isAdmin || isCourseHead;
+
+the name `isCourseHead` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/app/timetable/page.tsx [Client Component Browser]
+    ./src/app/timetable/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/timetable/page.tsx [Client Component SSR]
+    ./src/app/timetable/page.tsx [Server Component]
+[00:10:00.719] Browser ERROR   ./src/app/timetable/page.tsx:122:9
+Ecmascript file had an error
+  120 |
+  121 |   const isStudent = role === "student";
+> 122 |   const isFaculty = role === "faculty";
+      |         ^^^^^^^^^
+  123 |   const isCourseHead = role === "courseHead";
+  124 |   const isAdmin = role === "admin";
+  125 |
+
+the name `isFaculty` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/app/timetable/page.tsx [Client Component Browser]
+    ./src/app/timetable/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/timetable/page.tsx [Client Component SSR]
+    ./src/app/timetable/page.tsx [Server Component]
+[00:10:00.719] Browser ERROR   ./src/app/timetable/page.tsx:121:9
+Ecmascript file had an error
+  119 |   const isAdmin = effectiveRole === "admin";
+  120 |
+> 121 |   const isStudent = role === "student";
+      |         ^^^^^^^^^
+  122 |   const isFaculty = role === "faculty";
+  123 |   const isCourseHead = role === "courseHead";
+  124 |   const isAdmin = role === "admin";
+
+the name `isStudent` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/app/timetable/page.tsx [Client Component Browser]
+    ./src/app/timetable/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/timetable/page.tsx [Client Component SSR]
+    ./src/app/timetable/page.tsx [Server Component]
+[00:10:24.953] Server  LOG      ✓ Compiled in 138ms
+[00:10:33.724] Server  LOG      ✓ Compiled in 131ms
+[00:10:34.749] Browser ERROR   uncaughtError: ReferenceError: Cannot access 'authRole' before initialization
+[00:11:06.545] Server  LOG      ✓ Compiled in 115ms
+[00:11:06.588] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:11:07.925] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:54.630] Server  LOG      ✓ Compiled in 170ms
+[00:12:01.312] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:12:03.575] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:03.853] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -108,7 +206,48 @@ It can also happen if the client has a browser extension installed which messes 
             ...
           ...
 
-[00:03:22.883] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:03:28.363] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:30.296] Browser ERROR   [next-auth][error][CLIENT_FETCH_ERROR] 
-https://next-auth.js.org/errors#client_fetch_error Unexpected token '<', "<!DOCTYPE "... is not valid JSON {"error":{"message":"Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON","name":"SyntaxError","stack":"SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"},"message":"Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON","url":"/api/auth/session"}
+[00:12:03.853] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:16:58.529] Server  LOG      ✓ Compiled in 319ms
+[00:16:58.536] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:16:59.611] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:17:01.125] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:17:02.109] Server  ERROR   Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.4tqzhl2.mongodb.net
+[00:17:02.111] Server  ERROR    ⨯ "unhandledRejection:" Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.4tqzhl2.mongodb.net
+[00:17:02.113] Server  ERROR    ⨯ "unhandledRejection: " Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.4tqzhl2.mongodb.net
+[00:17:13.309] Server  LOG      ✓ Compiled in 317ms
+[00:17:24.652] Server  LOG      ○ Compiling /timetable/student ...
+[00:17:25.653] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:07.207] Server  LOG      ✓ Compiled in 238ms
+[00:24:46.440] Server  LOG      ✓ Compiled in 225ms
+[00:25:35.904] Server  LOG      ✓ Compiled in 98ms
+[00:25:36.394] Server  ERROR   Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[00:25:36.647] Server  ERROR   D:\zenith\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:25:36.650] Server  ERROR   D:\zenith\.next\dev\server\chunks\ssr\src_app_timetable_student_page_tsx_36f890db._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:25:36.652] Server  ERROR   D:\zenith\.next\dev\server\chunks\ssr\[turbopack]_runtime.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:25:36.659] Server  ERROR    ⨯ TypeError: Cannot read properties of null (reading 'useEffect')
+[00:25:37.683] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:39.730] Browser ERROR   uncaughtError: Error: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[00:25:46.667] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:25:46.668] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./src/app/timetable/student/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:25:46.668] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:25:46.686] Server  LOG      ✓ Compiled in 64ms
+[00:25:48.015] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:26:36.416] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:28:05.648] Server  LOG      ✓ Compiled in 115ms
+[00:28:23.930] Server  LOG      ✓ Compiled in 304ms
+[00:28:48.498] Server  LOG      ✓ Compiled in 128ms
+[00:29:47.129] Server  LOG      ✓ Compiled in 226ms
+[00:30:10.861] Server  LOG      ✓ Compiled in 135ms
+[00:34:41.703] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:35:04.308] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:36:29.319] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:37:29.852] Server  LOG      ✓ Compiled in 667ms
+[00:37:54.609] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes

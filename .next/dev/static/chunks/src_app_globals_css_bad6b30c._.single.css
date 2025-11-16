@@ -103,6 +103,7 @@
     --color-amber-400: #fcbb00;
     --color-amber-500: #f99c00;
     --color-amber-900: #7b3306;
+    --color-emerald-50: #ecfdf5;
     --color-emerald-200: #a4f4cf;
     --color-emerald-300: #5ee9b5;
     --color-emerald-400: #00d294;
@@ -162,6 +163,7 @@
     --color-white: #fff;
     --spacing: .25rem;
     --container-xs: 20rem;
+    --container-sm: 24rem;
     --container-md: 28rem;
     --container-lg: 32rem;
     --container-xl: 36rem;
@@ -229,6 +231,7 @@
       --color-amber-400: lab(80.1641% 16.6016 99.2089);
       --color-amber-500: lab(72.7183% 31.8672 97.9407);
       --color-amber-900: lab(31.2288% 30.2627 40.0378);
+      --color-emerald-50: lab(97.8462% -6.94963 1.85487);
       --color-emerald-200: lab(90.2247% -31.039 9.47084);
       --color-emerald-300: lab(83.9203% -48.7124 13.8849);
       --color-emerald-400: lab(75.0771% -60.7313 19.4146);
@@ -869,6 +872,10 @@
     height: 300px;
   }
 
+  .h-\[320px\] {
+    height: 320px;
+  }
+
   .h-\[650px\] {
     height: 650px;
   }
@@ -1031,6 +1038,10 @@
 
   .max-w-md {
     max-width: var(--container-md);
+  }
+
+  .max-w-sm {
+    max-width: var(--container-sm);
   }
 
   .max-w-xl {
@@ -1448,6 +1459,16 @@
     }
   }
 
+  .border-emerald-500\/70 {
+    border-color: #00bb7fb3;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-emerald-500\/70 {
+      border-color: color-mix(in oklab, var(--color-emerald-500) 70%, transparent);
+    }
+  }
+
   .border-input {
     border-color: var(--input);
   }
@@ -1786,6 +1807,10 @@
     background-color: var(--destructive);
   }
 
+  .bg-emerald-50 {
+    background-color: var(--color-emerald-50);
+  }
+
   .bg-emerald-400 {
     background-color: var(--color-emerald-400);
   }
@@ -1922,6 +1947,10 @@
 
   .bg-secondary {
     background-color: var(--secondary);
+  }
+
+  .bg-sky-400 {
+    background-color: var(--color-sky-400);
   }
 
   .bg-sky-500\/10 {
@@ -2792,6 +2821,10 @@
 
   .text-emerald-400 {
     color: var(--color-emerald-400);
+  }
+
+  .text-emerald-900 {
+    color: var(--color-emerald-900);
   }
 
   .text-foreground {

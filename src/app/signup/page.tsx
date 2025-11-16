@@ -12,9 +12,39 @@ import {
 } from "firebase/auth";
 import { useRouter } from "next/navigation";
 
-const CRED_KEY = "facultyCredentials"; // credentials generated in admin dashboard
+const CRED_KEY = "facultyCredentials"; // faculty + course head credentials generated in admin dashboard
+const STUDENT_CRED_KEY = "studentCredentials"; // student credentials generated in admin dashboard
+const ORGS_KEY = "zenithOrgs"; // list of organisations (multi-tenant)
 
-type TabKey = "admin" | "faculty" | "student";
+type TabKey = "admin" | "courseHead" | "faculty" | "student";
+
+type Org = {
+  id: string;
+  name: string;
+  code: string;
+  adminEmail: string;
+};
+
+function generateOrgCode() {
+  // Example: ZEN-AB12CD
+  return `ZEN-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+}
+
+function getOrgsFromStorage(): Org[] {
+  if (typeof window === "undefined") return [];
+  const raw = window.localStorage.getItem(ORGS_KEY);
+  if (!raw) return [];
+  try {
+    return JSON.parse(raw) as Org[];
+  } catch {
+    return [];
+  }
+}
+
+function saveOrgsToStorage(orgs: Org[]) {
+  if (typeof window === "undefined") return;
+  window.localStorage.setItem(ORGS_KEY, JSON.stringify(orgs));
+}
 
 export default function Page() {
   const [activeTab, setActiveTab] = useState<TabKey>("admin");
@@ -22,7 +52,12 @@ export default function Page() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    orgName: "",
+  });
 
   // faculty login
   const [facultyLogin, setFacultyLogin] = useState({
@@ -31,42 +66,122 @@ export default function Page() {
   });
   const [facultyError, setFacultyError] = useState<string | null>(null);
 
+  // course head login
+  const [courseHeadLogin, setCourseHeadLogin] = useState({
+    username: "",
+    password: "",
+  });
+  const [courseHeadError, setCourseHeadError] = useState<string | null>(null);
+
   // student login
   const [studentLogin, setStudentLogin] = useState({
     username: "",
     password: "",
   });
+  const [studentOrgCode, setStudentOrgCode] = useState("");
   const [studentError, setStudentError] = useState<string | null>(null);
+
+  // org creation feedback
+  const [createdOrgCode, setCreatedOrgCode] = useState<string | null>(null);
+  const [createdOrgName, setCreatedOrgName] = useState<string | null>(null);
+
+  // existing admin without org: prompt for org
+  const [orgSetupNeeded, setOrgSetupNeeded] = useState(false);
+  const [pendingAdminEmail, setPendingAdminEmail] = useState<string | null>(
+    null
+  );
+  const [orgNameForExistingAdmin, setOrgNameForExistingAdmin] = useState("");
 
   const router = useRouter();
 
-  // If user is already signed in with Firebase (admin), send them to admin dashboard
+  // If user is already signed in with Firebase (admin), send them to timetable page
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (u) => {
-      if (u) router.replace("/dashboard/admin");
+      if (u) {
+        // If they already have org & role in localStorage, timetable page will pick that.
+        router.replace("/timetable");
+      }
     });
     return () => unsub();
   }, [router]);
 
+  // ---------- help: create org for admin ----------
+  function createOrgForAdmin(email: string, orgName: string): Org {
+    const trimmedName = orgName.trim();
+    const orgCode = generateOrgCode();
+
+    const orgs = getOrgsFromStorage();
+    const newOrg: Org = {
+      id: Date.now().toString(),
+      name: trimmedName || "My Organisation",
+      code: orgCode,
+      adminEmail: email,
+    };
+    orgs.push(newOrg);
+    saveOrgsToStorage(orgs);
+
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("currentOrgCode", newOrg.code);
+      window.localStorage.setItem(
+        "currentUserRole",
+        JSON.stringify({
+          role: "admin",
+          email,
+          orgCode: newOrg.code,
+          orgName: newOrg.name,
+        })
+      );
+    }
+
+    setCreatedOrgCode(newOrg.code);
+    setCreatedOrgName(newOrg.name);
+    setOrgSetupNeeded(false);
+    setPendingAdminEmail(null);
+
+    return newOrg;
+  }
+
   // ---------- ADMIN SIGNUP ----------
+
   async function handleRegister(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError(null);
+    setCreatedOrgCode(null);
+    setCreatedOrgName(null);
+
     try {
+      if (!form.orgName.trim()) {
+        setError("Please enter your organisation / university name.");
+        setLoading(false);
+        return;
+      }
+
       await createUserWithEmailAndPassword(auth, form.email, form.password);
       if (auth.currentUser && form.name) {
         await updateProfile(auth.currentUser, { displayName: form.name });
       }
 
+      // Create org + code on first sign up
+      const org = createOrgForAdmin(form.email, form.orgName);
+
+      // Also remember admin basic info
       if (typeof window !== "undefined") {
         window.localStorage.setItem(
           "currentUserRole",
-          JSON.stringify({ role: "admin", email: form.email, name: form.name })
+          JSON.stringify({
+            role: "admin",
+            email: form.email,
+            name: form.name,
+            orgCode: org.code,
+            orgName: org.name,
+          })
         );
+        window.localStorage.setItem("currentOrgCode", org.code);
       }
 
-      router.push("/dashboard/admin");
+      // DO NOT auto-redirect – show org code first
+      // Admin can click "Go to Timetable" button after noting the code
     } catch (err: any) {
       setError(err.message || "Registration failed");
     } finally {
@@ -75,21 +190,43 @@ export default function Page() {
   }
 
   // ---------- ADMIN LOGIN ----------
+
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError(null);
+    setCreatedOrgCode(null);
+    setCreatedOrgName(null);
+    setOrgSetupNeeded(false);
+    setPendingAdminEmail(null);
+
     try {
       await signInWithEmailAndPassword(auth, form.email, form.password);
+
+      const orgs = getOrgsFromStorage();
+      const existingOrg = orgs.find((o) => o.adminEmail === form.email);
+
+      if (!existingOrg) {
+        // First login of an admin who does not yet have an org
+        setOrgSetupNeeded(true);
+        setPendingAdminEmail(form.email);
+        return;
+      }
 
       if (typeof window !== "undefined") {
         window.localStorage.setItem(
           "currentUserRole",
-          JSON.stringify({ role: "admin", email: form.email })
+          JSON.stringify({
+            role: "admin",
+            email: form.email,
+            orgCode: existingOrg.code,
+            orgName: existingOrg.name,
+          })
         );
+        window.localStorage.setItem("currentOrgCode", existingOrg.code);
       }
 
-      router.push("/dashboard/admin");
+      router.push("/timetable");
     } catch (err: any) {
       setError(err.message || "Login failed");
     } finally {
@@ -97,7 +234,20 @@ export default function Page() {
     }
   }
 
+  function handleExistingAdminOrgCreate(e: React.FormEvent) {
+    e.preventDefault();
+    if (!pendingAdminEmail) return;
+    if (!orgNameForExistingAdmin.trim()) {
+      setError("Please enter an organisation name.");
+      return;
+    }
+    const org = createOrgForAdmin(pendingAdminEmail, orgNameForExistingAdmin);
+    // After creation, send them to timetable
+    router.push("/timetable");
+  }
+
   // ---------- FACULTY LOGIN (username/password) ----------
+
   function handleFacultyLogin(e: React.FormEvent) {
     e.preventDefault();
     setFacultyError(null);
@@ -134,24 +284,109 @@ export default function Page() {
       return;
     }
 
-    // Mock login for faculty: store in localStorage and redirect.
+    // For now, faculty just attaches to last/active orgCode in localStorage (or admin sets it earlier).
+    // You can also tie faculty to org explicitly when generating creds.
+    let orgCode = "DEFAULT_ORG";
+    const orgs = getOrgsFromStorage();
+    if (orgs.length > 0) {
+      orgCode = orgs[0].code;
+    }
+
     window.localStorage.setItem(
       "currentFacultyUser",
       JSON.stringify({
         name: found.name,
         username: found.username,
         role: "faculty",
+        orgCode,
       })
     );
     window.localStorage.setItem(
       "currentUserRole",
-      JSON.stringify({ role: "faculty", username: found.username })
+      JSON.stringify({
+        role: "faculty",
+        username: found.username,
+        orgCode,
+      })
     );
+    window.localStorage.setItem("currentOrgCode", orgCode);
 
-    router.push("/dashboard/faculty");
+    // ✅ Faculty lands on timetable as well
+    router.push("/timetable");
   }
 
-  // ---------- STUDENT LOGIN (username/password, view-only timetable) ----------
+  // ---------- COURSE HEAD LOGIN (username/password -> role: courseHead) ----------
+
+  function handleCourseHeadLogin(e: React.FormEvent) {
+    e.preventDefault();
+    setCourseHeadError(null);
+
+    if (typeof window === "undefined") {
+      setCourseHeadError(
+        "Course Head login not available in this environment."
+      );
+      return;
+    }
+
+    const raw = window.localStorage.getItem(CRED_KEY);
+    if (!raw) {
+      setCourseHeadError(
+        "No course head/faculty credentials have been generated yet. Ask your admin for your username and password."
+      );
+      return;
+    }
+
+    let creds: { username: string; password: string; name: string }[] = [];
+    try {
+      creds = JSON.parse(raw);
+    } catch {
+      setCourseHeadError("Unable to read stored course head credentials.");
+      return;
+    }
+
+    const found = creds.find(
+      (c) =>
+        c.username === courseHeadLogin.username.trim() &&
+        c.password === courseHeadLogin.password
+    );
+
+    if (!found) {
+      setCourseHeadError("Invalid username or password for course head login.");
+      return;
+    }
+
+    // Attach course head to same org selection logic as faculty for now.
+    let orgCode = "DEFAULT_ORG";
+    const orgs = getOrgsFromStorage();
+    if (orgs.length > 0) {
+      orgCode = orgs[0].code;
+    }
+
+    window.localStorage.setItem(
+      "currentCourseHeadUser",
+      JSON.stringify({
+        name: found.name,
+        username: found.username,
+        role: "courseHead",
+        orgCode,
+      })
+    );
+    window.localStorage.setItem(
+      "currentUserRole",
+      JSON.stringify({
+        role: "courseHead",
+        username: found.username,
+        orgCode,
+      })
+    );
+    window.localStorage.setItem("currentOrgCode", orgCode);
+
+    // ✅ Course Head lands on timetable with elevated controls
+    router.push("/timetable");
+  }
+
+  // ---------- STUDENT LOGIN (username/password + org code) ----------
+
   function handleStudentLogin(e: React.FormEvent) {
     e.preventDefault();
     setStudentError(null);
@@ -161,8 +396,14 @@ export default function Page() {
       return;
     }
 
-    const raw = window.localStorage.getItem(CRED_KEY);
-    if (!raw) {
+    if (!studentOrgCode.trim()) {
+      setStudentError("Please enter your organisation code.");
+      return;
+    }
+
+    // 1) check student credentials
+    const rawCreds = window.localStorage.getItem(STUDENT_CRED_KEY);
+    if (!rawCreds) {
       setStudentError(
         "No student credentials have been generated yet. Ask your admin for your username and password."
       );
@@ -171,7 +412,7 @@ export default function Page() {
 
     let creds: { username: string; password: string; name: string }[] = [];
     try {
-      creds = JSON.parse(raw);
+      creds = JSON.parse(rawCreds);
     } catch {
       setStudentError("Unable to read stored student credentials.");
       return;
@@ -188,6 +429,16 @@ export default function Page() {
       return;
     }
 
+    // 2) check org code
+    const enteredCode = studentOrgCode.trim().toUpperCase();
+    const orgs = getOrgsFromStorage();
+    const org = orgs.find((o) => o.code.toUpperCase() === enteredCode);
+
+    if (!org) {
+      setStudentError("Invalid organisation code. Please verify with admin.");
+      return;
+    }
+
     // Mock login for student: store in localStorage and redirect.
     window.localStorage.setItem(
       "currentStudentUser",
@@ -195,17 +446,27 @@ export default function Page() {
         name: found.name,
         username: found.username,
         role: "student",
+        orgCode: org.code,
+        orgName: org.name,
       })
     );
     window.localStorage.setItem(
       "currentUserRole",
-      JSON.stringify({ role: "student", username: found.username })
+      JSON.stringify({
+        role: "student",
+        username: found.username,
+        orgCode: org.code,
+        orgName: org.name,
+      })
     );
+    window.localStorage.setItem("currentOrgCode", org.code);
 
-    router.push("/dashboard/student");
+    // ✅ Student lands on timetable (student view)
+    router.push("/timetable");
   }
 
   // ---------- Tab Button ----------
+
   function TabButton({
     tab,
     label,
@@ -223,7 +484,12 @@ export default function Page() {
           setActiveTab(tab);
           setError(null);
           setFacultyError(null);
+          setCourseHeadError(null);
           setStudentError(null);
+          setCreatedOrgCode(null);
+          setCreatedOrgName(null);
+          setOrgSetupNeeded(false);
+          setPendingAdminEmail(null);
         }}
         className={`flex-1 px-3 py-2 rounded-xl text-left border text-xs transition ${
           active
@@ -278,7 +544,8 @@ export default function Page() {
                 Role-based timetable views
               </h4>
               <p className="text-xs text-white/70 mt-1">
-                Admin manages, faculty edits, students view only.
+                Admin manages, course heads coordinate, faculty edits, students
+                view only.
               </p>
             </div>
             <div className="bg-black/60 text-white rounded-lg p-4">
@@ -314,6 +581,11 @@ export default function Page() {
                 description="Sign up or login as university admin"
               />
               <TabButton
+                tab="courseHead"
+                label="Course Head"
+                description="Department / course coordinator access"
+              />
+              <TabButton
                 tab="faculty"
                 label="Faculty"
                 description="Login with institute-provided credentials"
@@ -335,7 +607,66 @@ export default function Page() {
                   </span>
                 </div>
 
-                {mode === "register" ? (
+                {/* Show org code if just created */}
+                {createdOrgCode && createdOrgName && (
+                  <div className="mb-3 rounded-md border border-emerald-500/70 bg-emerald-50 px-3 py-2 text-[11px] text-emerald-900">
+                    <div className="font-semibold text-xs mb-1">
+                      Organisation created
+                    </div>
+                    <div>
+                      <span className="font-medium">Name:</span>{" "}
+                      {createdOrgName}
+                    </div>
+                    <div>
+                      <span className="font-medium">Org Code:</span>{" "}
+                      <span className="font-mono">{createdOrgCode}</span>
+                    </div>
+                    <div className="mt-1">
+                      Share this code with faculty and students so they can join
+                      your timetable.
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => router.push("/timetable")}
+                      className="mt-2 w-full py-1.5 rounded-md bg-black text-white text-xs"
+                    >
+                      Go to Timetable
+                    </button>
+                  </div>
+                )}
+
+                {/* If existing admin logged in but has no org yet */}
+                {orgSetupNeeded && !createdOrgCode ? (
+                  <form
+                    onSubmit={handleExistingAdminOrgCreate}
+                    className="space-y-3"
+                  >
+                    <div className="text-xs text-neutral-600 mb-1">
+                      Welcome! Before using Zenith, please create your
+                      organisation and get an org code to share.
+                    </div>
+                    <div>
+                      <label className="block text-xs mb-1 text-neutral-600">
+                        Organisation / University Name
+                      </label>
+                      <input
+                        required
+                        value={orgNameForExistingAdmin}
+                        onChange={(e) =>
+                          setOrgNameForExistingAdmin(e.target.value)
+                        }
+                        className="w-full px-3 py-2 rounded-md border text-sm"
+                        placeholder="e.g., Zenith Institute of Technology"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full py-2 rounded-md bg-black text-white text-sm"
+                    >
+                      Create organisation & get code
+                    </button>
+                  </form>
+                ) : mode === "register" ? (
                   <>
                     {/* ADMIN REGISTRATION */}
                     <form onSubmit={handleRegister} className="space-y-3">
@@ -370,6 +701,20 @@ export default function Page() {
                       </div>
                       <div>
                         <label className="block text-xs mb-1 text-neutral-600">
+                          Organisation / University Name
+                        </label>
+                        <input
+                          required
+                          value={form.orgName}
+                          onChange={(e) =>
+                            setForm((f) => ({ ...f, orgName: e.target.value }))
+                          }
+                          className="w-full px-3 py-2 rounded-md border text-sm"
+                          placeholder="e.g., Zenith Institute of Technology"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs mb-1 text-neutral-600">
                           Password
                         </label>
                         <input
@@ -394,7 +739,7 @@ export default function Page() {
                         >
                           {loading
                             ? "Creating admin..."
-                            : "Create admin account"}
+                            : "Create admin account & org"}
                         </button>
                       </div>
 
@@ -479,6 +824,63 @@ export default function Page() {
                     {error}
                   </div>
                 )}
+              </div>
+            )}
+
+            {activeTab === "courseHead" && (
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <h2 className="text-sm font-semibold">Course Head Login</h2>
+                  <span className="text-[11px] text-neutral-500">
+                    Department / course coordinator access
+                  </span>
+                </div>
+
+                <form onSubmit={handleCourseHeadLogin} className="space-y-3">
+                  <div>
+                    <label className="block text-xs mb-1 text-neutral-600">
+                      Course Head Username
+                    </label>
+                    <input
+                      value={courseHeadLogin.username}
+                      onChange={(e) =>
+                        setCourseHeadLogin((f) => ({
+                          ...f,
+                          username: e.target.value,
+                        }))
+                      }
+                      placeholder="e.g., cse.coordinator"
+                      className="w-full px-3 py-2 rounded-md border text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs mb-1 text-neutral-600">
+                      Course Head Password
+                    </label>
+                    <input
+                      type="password"
+                      value={courseHeadLogin.password}
+                      onChange={(e) =>
+                        setCourseHeadLogin((f) => ({
+                          ...f,
+                          password: e.target.value,
+                        }))
+                      }
+                      className="w-full px-3 py-2 rounded-md border text-sm"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full py-2 rounded-md border bg-white text-sm hover:bg-neutral-50"
+                  >
+                    Login as Course Head
+                  </button>
+                  {courseHeadError && (
+                    <div className="mt-2 text-center text-xs text-red-600">
+                      {courseHeadError}
+                    </div>
+                  )}
+                </form>
               </div>
             )}
 
@@ -579,6 +981,17 @@ export default function Page() {
                         }))
                       }
                       className="w-full px-3 py-2 rounded-md border text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs mb-1 text-neutral-600">
+                      Organisation Code
+                    </label>
+                    <input
+                      value={studentOrgCode}
+                      onChange={(e) => setStudentOrgCode(e.target.value)}
+                      placeholder="e.g., ZEN-AB12CD"
+                      className="w-full px-3 py-2 rounded-md border text-sm font-mono"
                     />
                   </div>
 
