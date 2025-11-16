@@ -2,8 +2,6 @@
 
 import { Calendar, Code, FileText, User, Clock } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
-import * as React from "react";
-import { cn } from "@/lib/utils";
 
 const timelineData = [
   {
@@ -74,6 +72,10 @@ export function RadialOrbitalTimelineDemo() {
 export default {
   RadialOrbitalTimelineDemo,
 };
+
+import * as React from "react";
+
+import { cn } from "@/lib/utils";
 
 const Card = React.forwardRef<
   HTMLDivElement,

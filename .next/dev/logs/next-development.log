@@ -252,3 +252,90 @@ See https://react.dev/link/invalid-hook-call for tips about how to debug and fix
 [00:37:29.852] Server  LOG      ✓ Compiled in 667ms
 [00:37:54.609] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
 [00:41:38.124] Server  LOG      ○ Compiling /about ...
+[00:48:13.346] Server  LOG      ✓ Compiled in 155ms
+[00:48:26.519] Server  LOG      ✓ Compiled in 273ms
+[00:54:25.857] Server  LOG      ✓ Compiled in 561ms
+[00:54:31.527] Server  LOG      ✓ Compiled in 147ms
+[00:54:36.250] Browser ERROR   ./src/components/ui/card.tsx:1:5
+Parsing ecmascript source code failed
+> 1 | npx shadcn@latest add https://21st.dev/r/jatin-yadav05/radial-orbital-timeline
+    |     ^^^^^^
+  2 | "use client";
+  3 |
+  4 | import { Calendar, Code, FileText, User, Clock } from "lucide-react";
+
+Expected ';', '}' or <eof>
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/card.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component Browser]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/card.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Client Component SSR]
+    ./src/components/ui/radial-orbital-timeline-demo.tsx [Server Component]
+    ./src/components/TimelineSection/TimelineSection.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+[00:55:33.299] Server  LOG      ✓ Compiled in 529ms
+[00:55:42.775] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:55:43.331] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <HomePage>
+                <main className="min-h-scre...">
+                  <div className="max-w-6xl ...">
+                    <section>
+                    <TimelineSection>
+                      <RadialOrbitalTimelineDemo>
+                        <RadialOrbitalTimeline timelineData={[...]}>
+                          <div className="w-full h-s..." ref={{current:null}} onClick={function handleContainerClick}>
+                            <div className="relative w...">
+                              <div className="absolute w..." ref={{current:null}} style={{...}}>
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div>
+                                <div
+                                  ref={function ref}
+                                  className="absolute transition-all duration-700 cursor-pointer"
+                                  style={{
++                                   transform: "translate(-161.8033988749895px, -117.5570504584946px)"
+-                                   transform: "translate(-161.803px, -117.557px)"
++                                   zIndex: 60
++                                   opacity: 0.5236644243122581
+-                                   opacity: "0.523664"
+-                                   z-index: "60"
+                                  }}
+                                  onClick={function onClick}
+                                >
+                                ...
+                    ...
+            ...
+          ...
+
+[00:55:43.331] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:55:47.883] Server  LOG      ✓ Compiled in 96ms
+[00:56:14.872] Server  LOG      ✓ Compiled in 201ms

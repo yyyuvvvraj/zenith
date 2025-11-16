@@ -142,13 +142,13 @@ export default function RadialOrbitalTimeline({
   const getStatusStyles = (status: TimelineItem["status"]): string => {
     switch (status) {
       case "completed":
-        return "text-white bg-black border-white";
+        return "text-black bg-black border-white";
       case "in-progress":
         return "text-black bg-white border-black";
       case "pending":
-        return "text-white bg-black/40 border-white/50";
+        return "text-black bg-black/40 border-white/50";
       default:
-        return "text-white bg-black/40 border-white/50";
+        return "text-black bg-black/40 border-white/50";
     }
   };
 
@@ -227,7 +227,7 @@ export default function RadialOrbitalTimeline({
                       ? "bg-white text-black"
                       : isRelated
                       ? "bg-white/50 text-black"
-                      : "bg-black text-white"
+                      : "bg-black text-black"
                   }
                   border-2 
                   ${
@@ -249,7 +249,7 @@ export default function RadialOrbitalTimeline({
                   absolute top-12  whitespace-nowrap
                   text-xs font-semibold tracking-wider
                   transition-all duration-300
-                  ${isExpanded ? "text-white scale-125" : "text-white/70"}
+                  ${isExpanded ? "text-black scale-125" : "text-black/70"}
                 `}
                 >
                   {item.title}
@@ -271,7 +271,7 @@ export default function RadialOrbitalTimeline({
                             ? "IN PROGRESS"
                             : "PENDING"}
                         </Badge>
-                        <span className="text-xs font-mono text-white/50">
+                        <span className="text-xs font-mono text-black/50">
                           {item.date}
                         </span>
                       </div>
@@ -279,7 +279,7 @@ export default function RadialOrbitalTimeline({
                         {item.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="text-xs text-white/80">
+                    <CardContent className="text-xs text-black/80">
                       <p>{item.content}</p>
 
                       <div className="mt-4 pt-3 border-t border-white/10">
@@ -301,8 +301,8 @@ export default function RadialOrbitalTimeline({
                       {item.relatedIds.length > 0 && (
                         <div className="mt-4 pt-3 border-t border-white/10">
                           <div className="flex items-center mb-2">
-                            <Link size={10} className="text-white/70 mr-1" />
-                            <h4 className="text-xs uppercase tracking-wider font-medium text-white/70">
+                            <Link size={10} className="text-black/70 mr-1" />
+                            <h4 className="text-xs uppercase tracking-wider font-medium text-black/70">
                               Connected Nodes
                             </h4>
                           </div>
@@ -316,7 +316,7 @@ export default function RadialOrbitalTimeline({
                                   key={relatedId}
                                   variant="outline"
                                   size="sm"
-                                  className="flex items-center h-6 px-2 py-0 text-xs rounded-none border-white/20 bg-transparent hover:bg-white/10 text-white/80 hover:text-white transition-all"
+                                  className="flex items-center h-6 px-2 py-0 text-xs rounded-none border-white/20 bg-transparent hover:bg-white/10 text-black/80 hover:text-black transition-all"
                                   onClick={(e) => {
                                     e.stopPropagation();
                                     toggleItem(relatedId);
@@ -325,7 +325,7 @@ export default function RadialOrbitalTimeline({
                                   {relatedItem?.title}
                                   <ArrowRight
                                     size={8}
-                                    className="ml-1 text-white/60"
+                                    className="ml-1 text-black/60"
                                   />
                                 </Button>
                               );
