@@ -2,6 +2,7 @@
   "/about/page": "app/about/page.js",
   "/page": "app/page.js",
   "/signup/page": "app/signup/page.js",
+  "/timetable/faculty/page": "app/timetable/faculty/page.js",
   "/timetable/page": "app/timetable/page.js",
   "/timetable/student/page": "app/timetable/student/page.js"
 }

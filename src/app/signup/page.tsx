@@ -248,6 +248,7 @@ export default function Page() {
 
   // ---------- FACULTY LOGIN (username/password) ----------
 
+  // ---------- FACULTY LOGIN (HARDCODED FOR NOW) ----------
   function handleFacultyLogin(e: React.FormEvent) {
     e.preventDefault();
     setFacultyError(null);
@@ -257,62 +258,46 @@ export default function Page() {
       return;
     }
 
-    const raw = window.localStorage.getItem(CRED_KEY);
-    if (!raw) {
-      setFacultyError(
-        "No faculty credentials have been generated yet. Ask your admin for your username and password."
+    // 🔐 Hardcoded faculty credentials
+    const FAC_USERNAME = "faculty1";
+    const FAC_PASSWORD = "password123";
+    const FAC_NAME = "Dr. Sharma";
+
+    if (
+      facultyLogin.username.trim() === FAC_USERNAME &&
+      facultyLogin.password === FAC_PASSWORD
+    ) {
+      let orgCode = "DEFAULT_ORG";
+      const storedOrgCode = window.localStorage.getItem("currentOrgCode");
+      if (storedOrgCode) {
+        orgCode = storedOrgCode;
+      }
+
+      window.localStorage.setItem(
+        "currentFacultyUser",
+        JSON.stringify({
+          name: FAC_NAME,
+          username: FAC_USERNAME,
+          role: "faculty",
+          orgCode,
+        })
       );
+
+      window.localStorage.setItem(
+        "currentUserRole",
+        JSON.stringify({
+          role: "faculty",
+          username: FAC_USERNAME,
+          orgCode,
+        })
+      );
+
+      // 👉 Faculty goes to the full-feature timetable view
+      router.push("/timetable/faculty");
       return;
     }
 
-    let creds: { username: string; password: string; name: string }[] = [];
-    try {
-      creds = JSON.parse(raw);
-    } catch {
-      setFacultyError("Unable to read stored faculty credentials.");
-      return;
-    }
-
-    const found = creds.find(
-      (c) =>
-        c.username === facultyLogin.username.trim() &&
-        c.password === facultyLogin.password
-    );
-
-    if (!found) {
-      setFacultyError("Invalid username or password for faculty login.");
-      return;
-    }
-
-    // For now, faculty just attaches to last/active orgCode in localStorage (or admin sets it earlier).
-    // You can also tie faculty to org explicitly when generating creds.
-    let orgCode = "DEFAULT_ORG";
-    const orgs = getOrgsFromStorage();
-    if (orgs.length > 0) {
-      orgCode = orgs[0].code;
-    }
-
-    window.localStorage.setItem(
-      "currentFacultyUser",
-      JSON.stringify({
-        name: found.name,
-        username: found.username,
-        role: "faculty",
-        orgCode,
-      })
-    );
-    window.localStorage.setItem(
-      "currentUserRole",
-      JSON.stringify({
-        role: "faculty",
-        username: found.username,
-        orgCode,
-      })
-    );
-    window.localStorage.setItem("currentOrgCode", orgCode);
-
-    // ✅ Faculty lands on timetable as well
-    router.push("/timetable");
+    setFacultyError("Invalid username or password for faculty login.");
   }
 
   // ---------- COURSE HEAD LOGIN (username/password -> role: courseHead) ----------
@@ -387,82 +372,43 @@ export default function Page() {
 
   // ---------- STUDENT LOGIN (username/password + org code) ----------
 
+  // ---------- STUDENT LOGIN (HARDCODED FOR NOW) ----------
   function handleStudentLogin(e: React.FormEvent) {
     e.preventDefault();
     setStudentError(null);
 
-    if (typeof window === "undefined") {
-      setStudentError("Student login not available in this environment.");
-      return;
-    }
+    const USERNAME = "student1";
+    const PASSWORD = "password123";
 
-    if (!studentOrgCode.trim()) {
-      setStudentError("Please enter your organisation code.");
-      return;
-    }
-
-    // 1) check student credentials
-    const rawCreds = window.localStorage.getItem(STUDENT_CRED_KEY);
-    if (!rawCreds) {
-      setStudentError(
-        "No student credentials have been generated yet. Ask your admin for your username and password."
+    if (
+      studentLogin.username.trim() === USERNAME &&
+      studentLogin.password === PASSWORD
+    ) {
+      // Mock login
+      window.localStorage.setItem(
+        "currentStudentUser",
+        JSON.stringify({
+          name: "Student User",
+          username: USERNAME,
+          role: "student",
+          orgCode: "DEFAULT_ORG", // ensures same timetable loads
+        })
       );
+      window.localStorage.setItem(
+        "currentUserRole",
+        JSON.stringify({
+          role: "student",
+          username: USERNAME,
+          orgCode: "DEFAULT_ORG",
+        })
+      );
+
+      // redirect to student timetable page
+      router.push("/timetable/student");
       return;
     }
 
-    let creds: { username: string; password: string; name: string }[] = [];
-    try {
-      creds = JSON.parse(rawCreds);
-    } catch {
-      setStudentError("Unable to read stored student credentials.");
-      return;
-    }
-
-    const found = creds.find(
-      (c) =>
-        c.username === studentLogin.username.trim() &&
-        c.password === studentLogin.password
-    );
-
-    if (!found) {
-      setStudentError("Invalid username or password for student login.");
-      return;
-    }
-
-    // 2) check org code
-    const enteredCode = studentOrgCode.trim().toUpperCase();
-    const orgs = getOrgsFromStorage();
-    const org = orgs.find((o) => o.code.toUpperCase() === enteredCode);
-
-    if (!org) {
-      setStudentError("Invalid organisation code. Please verify with admin.");
-      return;
-    }
-
-    // Mock login for student: store in localStorage and redirect.
-    window.localStorage.setItem(
-      "currentStudentUser",
-      JSON.stringify({
-        name: found.name,
-        username: found.username,
-        role: "student",
-        orgCode: org.code,
-        orgName: org.name,
-      })
-    );
-    window.localStorage.setItem(
-      "currentUserRole",
-      JSON.stringify({
-        role: "student",
-        username: found.username,
-        orgCode: org.code,
-        orgName: org.name,
-      })
-    );
-    window.localStorage.setItem("currentOrgCode", org.code);
-
-    // ✅ Student lands on timetable (student view)
-    router.push("/timetable");
+    setStudentError("Invalid username or password.");
   }
 
   // ---------- Tab Button ----------
@@ -981,17 +927,6 @@ export default function Page() {
                         }))
                       }
                       className="w-full px-3 py-2 rounded-md border text-sm"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs mb-1 text-neutral-600">
-                      Organisation Code
-                    </label>
-                    <input
-                      value={studentOrgCode}
-                      onChange={(e) => setStudentOrgCode(e.target.value)}
-                      placeholder="e.g., ZEN-AB12CD"
-                      className="w-full px-3 py-2 rounded-md border text-sm font-mono"
                     />
                   </div>
 

@@ -3663,6 +3663,12 @@
   }
 
   @media (hover: hover) {
+    .hover\:text-sky-200:hover {
+      color: var(--color-sky-200);
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:text-slate-600:hover {
       color: var(--color-slate-600);
     }
@@ -4095,6 +4101,12 @@
   @media (min-width: 64rem) {
     .lg\:grid-cols-2 {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .lg\:grid-cols-\[0\.9fr\,1\.6fr\] {
+      grid-template-columns: .9fr, 1.6fr;
     }
   }
 

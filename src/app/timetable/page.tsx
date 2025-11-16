@@ -130,8 +130,9 @@ const TimetableGAPlatform: React.FC = () => {
   const isCourseHead = role === "courseHead";
   const isAdmin = role === "admin";
 
-  const canEditGlobal = isAdmin || isCourseHead;
+  const canEditGlobal = isAdmin || isCourseHead || isFaculty;
   const canRunGA = canEditGlobal;
+
   const canUseWhatIf = !isStudent; // faculty, courseHead, admin
 
   // ========= CORE CONFIG =========
@@ -295,33 +296,53 @@ const TimetableGAPlatform: React.FC = () => {
   );
 
   // Load timetable + events for this org on mount
+  // ========= LOAD LOGGED-IN ROLE & USER FROM LOCALSTORAGE =========
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const orgCode = getCurrentOrgCode();
+    const rawRole = window.localStorage.getItem("currentUserRole");
+    if (!rawRole) return;
 
-    const storedTimetable = window.localStorage.getItem(`timetable_${orgCode}`);
-    if (storedTimetable) {
-      try {
-        const parsed = JSON.parse(storedTimetable) as TimetableSlot[];
-        if (Array.isArray(parsed)) {
-          setTimetable(parsed);
-        }
-      } catch {
-        // ignore parse error
-      }
-    }
+    try {
+      const parsed = JSON.parse(rawRole) as {
+        role?: Role;
+        email?: string;
+        name?: string;
+        username?: string;
+        orgCode?: string;
+      };
 
-    const storedEvents = window.localStorage.getItem(`events_${orgCode}`);
-    if (storedEvents) {
-      try {
-        const parsed = JSON.parse(storedEvents) as AcademicEvent[];
-        if (Array.isArray(parsed)) {
-          setEvents(parsed);
+      if (!parsed.role) return;
+
+      // Set the authenticated role (admin/faculty/student...)
+      setAuthRole(parsed.role);
+      setRole(parsed.role);
+
+      // Optional: store basic user info for later use
+      setCurrentUser({
+        role: parsed.role,
+        email: parsed.email,
+        name: parsed.name,
+        username: parsed.username,
+      });
+
+      // If faculty, auto-attach actingFaculty from stored faculty user
+      if (parsed.role === "faculty") {
+        const rawFaculty = window.localStorage.getItem("currentFacultyUser");
+        if (rawFaculty) {
+          try {
+            const fac = JSON.parse(rawFaculty);
+            if (fac?.name) {
+              setActingFaculty(fac.name);
+              setAdjustFaculty(fac.name);
+            }
+          } catch {
+            // ignore
+          }
         }
-      } catch {
-        // ignore parse error
       }
+    } catch {
+      // ignore parse errors
     }
   }, []);
 
