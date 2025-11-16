@@ -251,3 +251,4 @@ See https://react.dev/link/invalid-hook-call for tips about how to debug and fix
 [00:36:29.319] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [00:37:29.852] Server  LOG      ✓ Compiled in 667ms
 [00:37:54.609] Browser WARN    Image with src "/images/dashboard-mock.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:41:38.124] Server  LOG      ○ Compiling /about ...
