@@ -4,7 +4,8 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "@/lib/mongodb"; // correct — server-only mongo client
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
+
 
 export const authOptions: NextAuthOptions = {
   adapter: MongoDBAdapter(clientPromise),
